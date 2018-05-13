@@ -7,6 +7,8 @@
     background-color: #E6E6E6;
     text-decoration: none;
     border-radius: 2px;
+    width: 100%;
+    margin-bottom: 1rem;
 }
 
 .btn-hover,
@@ -14,11 +16,25 @@
 .btn:focus {
     background-image: linear-gradient(transparent, rgba(0,0,0, 0.05) 40%, rgba(0,0,0, 0.10));
 }
+
 .btn:focus {
     outline: 0;
 }
+
 .btn-active,
 .btn:active {
     box-shadow: 0 0 0 1px rgba(0,0,0, 0.15) inset, 0 0 6px rgba(0,0,0, 0.20) inset;
     border-color: #000\9;
+}
+
+@media (min-width: 640px) {
+    .btn {
+        width: calc(50% - 0.3rem);
+    }
+}
+
+@media (min-width: 1024px) {
+    .btn {
+        width: calc(25% - 0.3rem);
+    }
 }

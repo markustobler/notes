@@ -14,7 +14,7 @@ body {
     background: #fefefe;
 }
 .content {
-    padding: 1rem;
+    padding: 1rem 0;
     flex: 1 0 auto;
 }
 .footer {
