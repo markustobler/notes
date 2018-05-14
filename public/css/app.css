@@ -1,4 +1,5 @@
 @import url("_foundation.css");
+@import url("_typography.css");
 @import url("_grid.css");
 @import url("_buttons.css");
 @import url("_form.css");
@@ -13,12 +14,74 @@ body {
     color: rgba(0, 0, 0, 0.80);
     background: #fefefe;
 }
+
+.header{
+    margin-bottom: 2rem;
+}
+
 .content {
     padding: 1rem 0;
     flex: 1 0 auto;
 }
+
+.note{
+    border-radius: 2px;
+    margin-bottom: 2rem;
+}
+
+.note .left{
+    background-color: #e6e6e6;
+    border-bottom: 1px solid #d2d2d2;
+    padding: 1rem;
+    box-sizing: border-box;
+    margin-bottom: 0;
+    width: 100%;
+    text-align: center;
+}
+
+.note .middle{
+    background-color: #e6e6e6;
+    border-bottom: 1px solid #d2d2d2;
+    padding: 1rem;
+    box-sizing: border-box;
+    margin-bottom: 0;
+    width: 100%;
+}
+
+.note .right{
+    background-color: #e6e6e6;
+}
+
 .footer {
     padding: 1rem;
     flex-shrink: 0;
-    background-color: #E6E6E6;
+    background-color: #e6e6e6;
+}
+
+@media (min-width: 640px) {
+    header .btn {
+        width: calc(50% - 0.3rem);
+    }
+
+    .note .left {
+        width: calc(25% - 0.3rem);
+        margin-bottom: 1rem;
+        border-bottom: none;
+        border-radius: 2px;
+        text-align: justify;
+    }
+
+    .note .middle {
+        width: calc(75% - 0.3rem);
+        margin-bottom: 1rem;
+        border-bottom: none;
+        border-radius: 2px;
+    }
+
+}
+
+@media (min-width: 1024px) {
+    .note .middle {
+        width: calc(50% - 0.3rem);
+    }
 }
