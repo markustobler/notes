@@ -1,3 +1,10 @@
 p{
     margin-bottom: 1rem;
 }
+
+h1.heading-1{
+    font-size: 2rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    margin-bottom: 1rem;
+}

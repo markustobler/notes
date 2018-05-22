@@ -24,56 +24,51 @@
 <div class="content">
     <div class="grid-container">
         <header class="header">
+
+            <h1 class="heading-1">Your notes</h1>
             <div class="flex-grid">
                 <button type="button" class="btn"><i class="fas fa-plus"></i>&nbsp;Create New Note</button>
-
                 <label class="select">
                     <select>
                         <option value="blackwhite">BlackWhite-Style</option>
                         <option value="color">Color-Style</option>
                     </select>
                 </label>
-
             </div>
             <div class="flex-grid filter">
                 <button type="button" class="btn"><i class="far fa-clock"></i>&nbsp;By finish Date&nbsp;</button>
                 <button type="button" class="btn"><i class="far fa-calendar"></i>&nbsp;By created Date</button>
                 <button type="button" class="btn"><i class="fas fa-bolt"></i>&nbsp;By Importance</button>
-                <button type="button" class="btn"><i class="fas fa-flag-checkered"></i>&nbsp;Show finished</button>
+                <label class="checkbox-container show-finished">
+                    <input type="checkbox" name="finished" value="0" />
+                    <span class="checkmark"></span>
+                    Show Finished
+                </label>
+
             </div>
         </header>
 
-        <div class="note flex-grid">
-            <div class="left">
-                <p>Nächsten Mittwoch</p>
-                <label class="checkbox-container">
-                    <input type="checkbox" name="finished" value="0" />
-                    <span class="checkmark"></span>
-                    Finished
-                </label>
-            </div>
-            <div class="middle">
-                <p class="title"><b>CAS-FEE2018 Selbststudium Projektaufgabe erledigen</b></p>
-                <p class="description">HTML für die note App erstellen ...</p>
-            </div>
-            <button type="button" class="btn col-25"><i class="fas fa-pencil-alt"></i>&nbsp;Edit</button>
-        </div>
+        <section>
+            <article class="note flex-grid">
+                <div class="left">
+                    <p>Nächsten Mittwoch</p>
+                    <label class="checkbox-container">
+                        <input type="checkbox" name="finished" value="0" />
+                        <span class="checkmark"></span>
+                        Finished
+                    </label>
+                </div>
+                <div class="right">
+                    <p class="note__title"><b>CAS-FEE2018 Selbststudium Projektaufgabe erledigen</b></p>
+                    <p class="note__description">HTML für die note App erstellen ...</p>
+                    <footer class="note__footer">
+                        <button type="button"><i class="fas fa-pencil-alt"></i></button>
+                    </footer>
 
-        <div class="note flex-grid">
-            <div class="left">
-                <p>Nächsten Mittwoch</p>
-                <label class="checkbox-container">
-                    <input type="checkbox" name="finished" value="0" />
-                    <span class="checkmark"></span>
-                    Finished
-                </label>
-            </div>
-            <div class="middle">
-                <p class="title"><b>CAS-FEE2018 Selbststudium Projektaufgabe erledigen</b></p>
-                <p class="description">HTML für die note App erstellen ...</p>
-            </div>
-            <button type="button" class="btn col-25"><i class="fas fa-pencil-alt"></i>&nbsp;Edit</button>
-        </div>
+                </div>
+            </article>
+        </section>
+
 
     </div>
 </div>
