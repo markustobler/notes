@@ -51,8 +51,26 @@ body {
     width: 100%;
 }
 
+.note__header{
+    display: flex;
+    justify-content: space-between;
+}
+
+.header--rating{
+    width: 30%;
+    text-align: right;
+}
+
+.header--rating i{
+    margin-left: 0.3rem;
+}
+
 .note__footer{
     text-align: right;
+}
+
+.note__footer i{
+    margin-left: 0.3rem;
 }
 
 .footer {
