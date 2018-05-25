@@ -1,4 +1,5 @@
-<html lang="de-CH">
+<!DOCTYPE html>
+<html lang="en">
 <head>
     <meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
@@ -26,8 +27,8 @@
         <header class="header">
 
             <h1 class="heading-1">Your notes</h1>
-            <div class="flex-grid">
-                <button type="button" class="btn"><i class="fas fa-plus"></i>&nbsp;Create New Note</button>
+            <div class="flex__grid flex__grid--space-between">
+                <button type="button" class="btn btn--basic"><i class="fas fa-plus"></i>&nbsp;Create New Note</button>
                 <label class="select">
                     <select>
                         <option value="blackwhite">BlackWhite-Style</option>
@@ -35,10 +36,10 @@
                     </select>
                 </label>
             </div>
-            <div class="flex-grid filter">
-                <button type="button" class="btn"><i class="far fa-clock"></i>&nbsp;By finish Date&nbsp;</button>
-                <button type="button" class="btn"><i class="far fa-calendar"></i>&nbsp;By created Date</button>
-                <button type="button" class="btn"><i class="fas fa-bolt"></i>&nbsp;By Importance</button>
+            <div class="flex__grid flex__grid--space-between filter">
+                <button type="button" class="btn btn--basic"><i class="far fa-clock"></i>&nbsp;By finish Date&nbsp;</button>
+                <button type="button" class="btn btn--basic"><i class="far fa-calendar"></i>&nbsp;By created Date</button>
+                <button type="button" class="btn btn--basic"><i class="fas fa-bolt"></i>&nbsp;By Importance</button>
                 <label class="checkbox-container show-finished">
                     <input type="checkbox" name="finished" value="0" />
                     <span class="checkmark"></span>
@@ -49,7 +50,7 @@
         </header>
 
         <section>
-            <article class="note flex-grid">
+            <article class="note flex__grid flex__grid--space-between">
                 <div class="left">
                     <p>Nächsten Mittwoch</p>
                     <label class="checkbox-container">

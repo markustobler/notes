@@ -2,6 +2,7 @@
 @import url("_typography.css");
 @import url("_grid.css");
 @import url("_buttons.css");
+@import url("_stars.css");
 @import url("_form.css");
 
 html, body {

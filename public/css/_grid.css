@@ -5,14 +5,22 @@
     padding-left: 0.65rem;
 }
 
-.flex-grid {
+.flex__grid {
     display: block;
     flex-wrap: wrap;
+}
+
+.flex__grid--end{
+    justify-content: flex-end;
+}
+
+.flex__grid--space-between{
     justify-content: space-between;
 }
 
+
 @media (min-width: 640px) {
-    .flex-grid {
+    .flex__grid {
         display: flex;
     }
 }
