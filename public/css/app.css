@@ -1,4 +1,5 @@
 @import url("_foundation.css");
+@import url("_variables.css");
 @import url("_typography.css");
 @import url("_grid.css");
 @import url("_buttons.css");
@@ -10,9 +11,11 @@ html, body {
 body {
     display: flex;
     flex-direction: column;
-    font-family: 'Open Sans', sans-serif;
-    color: rgba(0, 0, 0, 0.80);
-    background: #f9f9f9;
+    font-family: 'Source Sans Pro',sans-serif;
+    color: var(--color-font);
+    background: var(--color-background);
+    font-size: 18px;
+    line-height: 1.5;
 }
 
 .header{
@@ -28,27 +31,32 @@ body {
 .note{
     border-radius: 2px;
     margin-bottom: 2rem;
+    color: var(--color-note-font);
 }
 
 .note .left{
-    background-color: white;
-    border: 1px solid #d2d2d2;
+    background-color: var(--color-note-background);
     border-bottom: 0;
     padding: 1rem;
     box-sizing: border-box;
     margin-bottom: 0;
     width: 100%;
     text-align: center;
+    box-shadow: 0 1px 2px 0 rgba(0,0,0,.1);
 }
 
 .note .right{
-    background-color: white;
-    border: 1px solid #d2d2d2;
+    background-color: var(--color-note-background);
     border-top: 1px dashed #d2d2d2;
     padding: 1rem;
     box-sizing: border-box;
     margin-bottom: 0;
     width: 100%;
+    box-shadow: 0 1px 2px 0 rgba(0,0,0,.1);
+}
+
+.note:hover .left, .note:hover .right{
+    box-shadow: 0 1px 30px 0 rgba(0,0,0,.2);
 }
 
 .header__rating{
@@ -64,22 +72,19 @@ body {
     margin-left: 0
 }
 
-.header--title{
-    margin-bottom: 0.5rem;
-}
-
 .note__footer{
     text-align: right;
 }
 
 .note__footer i{
-    margin-left: 0.3rem;
+    margin-left: 1rem;
 }
 
 .footer {
     padding: 1rem;
     flex-shrink: 0;
-    background-color: #e6e6e6;
+    background-color: var(--color-footer);
+    color: var(--color-footer-font);
 }
 
 /* Star Icons */
@@ -91,6 +96,10 @@ body {
     text-rendering: auto;
     line-height: 1;
     font-size: 1rem;
+}
+
+.staricon--color{
+    color: var(--color-staricon-solid);
 }
 
 .staricon--solid:before{
@@ -111,7 +120,7 @@ body {
     }
 
     .note .left {
-        width: calc(25% - 0.3rem);
+        width: calc(25% - 0.15rem);
         margin-bottom: 1rem;
         border-radius: 2px;
         text-align: justify;
@@ -119,7 +128,7 @@ body {
     }
 
     .note .right {
-        width: calc(75% - 0.3rem);
+        width: calc(75% - 0.15rem);
         margin-bottom: 1rem;
         border: 1px solid #d2d2d2;
     }
@@ -129,10 +138,6 @@ body {
         justify-content: space-between;
     }
 
-    .header--title{
-        margin-bottom: 1rem;
-    }
-
     .header__rating{
         width: 30%;
         text-align: right;
@@ -140,9 +145,14 @@ body {
     }
 }
 
+header .show-finished {
+    padding-top: 0.3rem;
+    text-align: center;
+}
+
 @media (min-width: 1024px) {
     header .show-finished {
-        width: calc(25% - 2.3rem);
+        width: calc(25% - 0.3rem);
     }
 }
 
@@ -170,10 +180,17 @@ body {
 .read-more-trigger {
     cursor: pointer;
     display: inline-block;
-    padding: 0 .5rem;
-    color: #666;
-    font-size: 1rem;
-    line-height: 2;
-    border: 1px solid #ddd;
-    border-radius: .25rem;
+    font-family: inherit;
+    font-size: 100%;
+    color: var(--color-button-font);
+    border: none rgba(0, 0, 0, 0);
+    background-color: var(--color-button);
+    text-decoration: none;
+    border-radius: 18px;
+    margin-bottom: 1rem;
+    padding: 0.3rem 1rem;
+}
+
+.read-more-trigger:hover{
+    background: var(--color-button-active);
 }

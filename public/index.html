@@ -4,7 +4,7 @@
     <meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <meta name="description" content="The simplest way to keep notes. Light, clean, and free.">
-    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700|Source+Sans+Pro:400,700|Vollkorn" rel="stylesheet">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css"
           integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="css/app.css">
@@ -21,7 +21,7 @@
     <meta name="msapplication-config" content="favicons/browserconfig.xml">
     <meta name="theme-color" content="#ffffff">
 </head>
-<body>
+<body class="color-style">
 <div class="content">
     <div class="grid-container">
         <header class="header">
@@ -30,21 +30,24 @@
             <div class="flex__grid flex__grid--space-between">
                 <button type="button" class="btn btn--basic"><i class="fas fa-plus"></i>&nbsp;Create New Note</button>
                 <label class="select">
-                    <select>
-                        <option value="blackwhite">BlackWhite-Style</option>
-                        <option value="color">Color-Style</option>
+                    <select id="styleSwitcher">
+                        <option value="gray-style">Gray Style</option>
+                        <option value="color-style">Color Style</option>
                     </select>
                 </label>
             </div>
             <div class="flex__grid flex__grid--space-between filter">
                 <button type="button" class="btn btn--basic"><i class="far fa-clock"></i>&nbsp;By finish Date&nbsp;</button>
                 <button type="button" class="btn btn--basic"><i class="far fa-calendar"></i>&nbsp;By created Date</button>
-                <button type="button" class="btn btn--basic"><i class="fas fa-bolt"></i>&nbsp;By Importance</button>
-                <label class="checkbox-container show-finished">
-                    <input type="checkbox" name="finished" value="0" />
-                    <span class="checkmark"></span>
-                    Show Finished
-                </label>
+                <button type="button" class="btn btn--basic"><i class="staricon staricon--solid"></i>&nbsp;By Importance</button>
+                <div class="show-finished">
+                    <label class="checkbox-container">
+                        <input type="checkbox" name="finished" value="0" />
+                        <span class="checkmark"></span>
+                        Show Finished
+                    </label>
+                </div>
+
 
             </div>
         </header>
@@ -61,14 +64,14 @@
                 </div>
                 <div class="right">
                     <div class="note__header">
-                        <p class="header--title"><b>CAS-FEE2018 Selbststudium Projektaufgabe erledigen</b></p>
+                        <h3 class="heading-3">CAS-FEE2018 Selbststudium Projektaufgabe erledigen</h3>
 
                         <div class="header__rating">
-                            <i class="staricon staricon--solid"></i>
-                            <i class="staricon staricon--solid"></i>
-                            <i class="staricon staricon--solid"></i>
-                            <i class="staricon staricon--regular"></i>
-                            <i class="staricon staricon--regular"></i>
+                            <i class="staricon staricon--solid staricon--color"></i>
+                            <i class="staricon staricon--solid staricon--color"></i>
+                            <i class="staricon staricon--solid staricon--color"></i>
+                            <i class="staricon staricon--regular staricon--color"></i>
+                            <i class="staricon staricon--regular staricon--color"></i>
                         </div>
                     </div>
 

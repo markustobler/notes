@@ -1,14 +1,30 @@
 p{
     margin-bottom: 1rem;
-    line-height: 1.6;
 }
 
-h1.heading-1{
+.heading-1{
+    font-family: Montserrat,sans-serif;
     font-size: 2rem;
-    font-weight: bold;
+    font-weight: 700;
     margin-bottom: 1rem;
+}
+
+.heading-3{
+    font-family: Montserrat,sans-serif;
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 36px;
+    margin-bottom: 12px;
 }
 
 p.copy{
     margin: 0;
+}
+
+.heading-3{
+    font-family: Montserrat,sans-serif;
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 36px;
+    margin-bottom: 12px;
 }

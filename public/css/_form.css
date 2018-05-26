@@ -12,9 +12,9 @@ label.select:after {
     font-family: 'Font Awesome\ 5 Free';
     font-weight: 900;
     font-size: 1rem;
-    color: rgba(0, 0, 0, 0.80);
-    right:0.5rem;
-    top: calc(50% - 0.5rem);
+    color: var(--color-button-font);
+    right:2.5rem;
+    top: calc(50% - 0.7rem);
     position:absolute;
     pointer-events:none;
 }
@@ -23,8 +23,8 @@ label.select select{
     padding: 0.5rem 1rem;
     margin: 0;
     font-size: 100%;
-    color: rgba(0, 0, 0, 0.80);
-    background-color: #E6E6E6;
+    color: var(--color-button-font);
+    background-color: var(--color-button);
     border:none;
     outline:none;
     display: inline-block;
@@ -33,10 +33,9 @@ label.select select{
     appearance:none;
     cursor:pointer;
     width: 100%;
-    border-radius: 2px;
+    border-radius: 18px;
 }
 
-/* media queries select */
 @media (min-width: 640px) {
     label.select {
         width: calc(50% - 0.3rem);
@@ -104,7 +103,7 @@ input[type=text]:focus, textarea:focus, input[type=date]:focus{
 }
 
 .checkbox-container input:checked ~ .checkmark {
-    background-color: #2196f3;
+    background-color: var(--color-checkbox-checked);
     border: none;
 }
 
@@ -130,6 +129,10 @@ input[type=text]:focus, textarea:focus, input[type=date]:focus{
     transform: rotate(45deg);
 }
 
+.showfinished{
+    padding: 0.5rem;
+}
+
 /* form on edit page*/
 .form__actions {
     grid-column: 2;
@@ -145,7 +148,7 @@ input[type=text]:focus, textarea:focus, input[type=date]:focus{
     width: 100%;
     padding: 0.75rem 1.25rem;
     border: 1px solid #ccc;
-    border-radius: 4px;
+    border-radius: 18px;
     font-size: inherit;
     display: block;
 }
@@ -176,13 +179,13 @@ label.star {
     float: right;
     padding: 5px;
     font-size: 1.5rem;
-    color: #444;
+    color: var(--color-staricon-solid);
     transition: all .2s;
 }
 
 input.star:checked ~ label.star:before {
     content: '\2605';
-    color: #888888;
+    color: var(--color-staricon-solid);
     transition: all .25s;
 }
 
@@ -195,8 +198,6 @@ label.star:before {
     cursor: pointer;
 }
 
-
-/* media queries select */
 @media (min-width: 640px) {
     .form {
         display: grid;
