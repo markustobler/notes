@@ -2,7 +2,6 @@
 @import url("_typography.css");
 @import url("_grid.css");
 @import url("_buttons.css");
-@import url("_stars.css");
 @import url("_form.css");
 
 html, body {
@@ -52,18 +51,21 @@ body {
     width: 100%;
 }
 
-.note__header{
-    display: flex;
-    justify-content: space-between;
+.header__rating{
+    text-align: left;
+    margin-bottom: 1rem;
 }
 
-.header--rating{
-    width: 30%;
-    text-align: right;
-}
-
-.header--rating i{
+.header__rating i{
     margin-left: 0.3rem;
+}
+
+.header__rating i:first-child{
+    margin-left: 0
+}
+
+.header--title{
+    margin-bottom: 0.5rem;
 }
 
 .note__footer{
@@ -78,6 +80,25 @@ body {
     padding: 1rem;
     flex-shrink: 0;
     background-color: #e6e6e6;
+}
+
+/* Star Icons */
+.staricon{
+    -webkit-font-smoothing: antialiased;
+    display: inline-block;
+    font-style: normal;
+    font-variant: normal;
+    text-rendering: auto;
+    line-height: 1;
+    font-size: 1rem;
+}
+
+.staricon--solid:before{
+    content: '\2605';
+}
+
+.staricon--regular:before{
+    content: '\2606';
 }
 
 @media (min-width: 640px) {
@@ -103,6 +124,20 @@ body {
         border: 1px solid #d2d2d2;
     }
 
+    .note__header{
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .header--title{
+        margin-bottom: 1rem;
+    }
+
+    .header__rating{
+        width: 30%;
+        text-align: right;
+        margin-bottom: 0;
+    }
 }
 
 @media (min-width: 1024px) {
@@ -110,5 +145,3 @@ body {
         width: calc(25% - 2.3rem);
     }
 }
-
-
