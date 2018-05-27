@@ -2,7 +2,7 @@
 Notes is a lightweight jacascript app to manage your notes.
 
 Created in the CAS Frontend Engineering course at the Technical University Rapperswil HSR.
-[www.hsr.ch]
+(www.hsr.ch)
 
 ## Installation
 Install all dependencies, in repo's root:
