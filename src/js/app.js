@@ -1,3 +1,20 @@
+//classes
+class Note {
+    constructor({id, title, description, importance = 0, finishDate, createdDate, archived = false}) {
+        this.id = id;
+        this.title = title;
+        this.description = description;
+        this.importance = importance;
+        this.finishDate = finishDate;
+        this.createdDate = createdDate;
+        this.archived = archived;
+    }
+}
+
+
+
+
+
 // Style Switcher
 function addEvent(obj, type, fn) {
     if (obj.attachEvent) {
