@@ -1,3 +1,19 @@
+
+// UI-Refs
+const newBtn = document.getElementById('new');
+
+newBtn.addEventListener("click", function () {
+
+    location.href = "edit.html";
+
+});
+
+const test = hjvjh;
+
+
+let jwhdgfhu = "fgfg";
+
+
 // Style Switcher
 function addEvent(obj, type, fn) {
     if (obj.attachEvent) {

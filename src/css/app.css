@@ -22,6 +22,10 @@ body {
     margin-bottom: 2rem;
 }
 
+.header button i{
+    margin-right: 0.5rem;
+}
+
 .content {
     margin-top: 2rem;
     padding: 1rem 0;
@@ -47,7 +51,7 @@ body {
 
 .note .right{
     background-color: var(--color-note-background);
-    border-top: 1px dashed #d2d2d2;
+    border-top: var(--border-note-thickness) dashed #d2d2d2;
     padding: 1rem;
     box-sizing: border-box;
     margin-bottom: 0;
@@ -124,13 +128,13 @@ body {
         margin-bottom: 1rem;
         border-radius: 2px;
         text-align: justify;
-        border: 1px solid #d2d2d2;
+        border: var(--border-note-thickness) solid #d2d2d2;
     }
 
     .note .right {
         width: calc(75% - 0.15rem);
         margin-bottom: 1rem;
-        border: 1px solid #d2d2d2;
+        border: var(--border-note-thickness) solid #d2d2d2;
     }
 
     .note__header{

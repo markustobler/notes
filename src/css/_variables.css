@@ -22,6 +22,7 @@ body.gray-style {
     --color-button-active: #cbcbcb;
     --color-checkbox-checked: #2196f3;
     --color-staricon-solid: var(--color-dark-gray);
+    --border-note-thickness: 1px;
 }
 
 body.color-style {
@@ -36,4 +37,5 @@ body.color-style {
     --color-button-active: #55B3C1;
     --color-checkbox-checked: var(--color-secundary);
     --color-staricon-solid: var(--color-tertiary);
+    --border-note-thickness: 0;
 }
