@@ -1,4 +1,4 @@
-#notes
+# Notes
 Notes is a lightweight jacascript app to manage your notes.
 
 Created in the CAS Frontend Engineering course at the Technical University Rapperswil HSR.
