@@ -1,6 +1,6 @@
 //classes
 class Note {
-    constructor({id, title, description, importance = 0, finishDate, createdDate, archived = false}) {
+    constructor({id, title, description, importance, finishDate, createdDate, archived = false}) {
         this.id = id;
         this.title = title;
         this.description = description;

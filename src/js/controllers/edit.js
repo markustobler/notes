@@ -17,7 +17,6 @@ const uuidv4 = {
 };
 
 
-
 // Form Validation
 function checkFormValidity(){
     const isValidNoteTitle = noteTitle.checkValidity();
@@ -33,22 +32,44 @@ function checkFormValidity(){
 }
 
 
-
 // app-state / model
 const noteModel = {
+
+    importance: function(){
+
+        // if no rating is checked return 0
+        var selection = noteImportance.querySelector('input[name="star"]:checked') !== null;
+        if (selection){
+            return noteImportance.querySelector('input[name="star"]:checked').value;
+        }
+        else{
+            return 0;
+        }}
+    ,
+
     saveNote: function () {
         const note = new Note({
             id: uuidv4.id(),
             title: noteTitle.value,
             description: noteDescription.value,
-            importance: noteImportance.querySelector('input[name="star"]:checked').value,
+            importance: noteModel.importance(),
             finishDate: noteFinishDate.value,
             createdDate: moment(),
             archived: false
         });
 
-        // Save form to local storage
-        localStorage.setItem('testObject', JSON.stringify(note));
+
+        // get notes object from local storage and parse JSON or set new object
+        let notes = JSON.parse(localStorage.getItem('notes')) || {};
+
+        // add note to notes object with note.id as key
+        notes[note.id] = note;
+
+        // parse notes object back to json and store it in local storage
+        localStorage.setItem('notes', JSON.stringify(notes));
+
+        // redirect to index.html
+        window.location.href = 'index.html';
 
     }
 };
@@ -59,7 +80,7 @@ const noteController = {
         // render UI
     },
     registerListeners: function () {
-        noteSubmit.addEventListener("click", function (e) {
+        noteSubmit.addEventListener('click', function (e) {
 
             // save only if all required fields are valid
             if(checkFormValidity() == true){
@@ -70,7 +91,8 @@ const noteController = {
 
 
         noteCancel.onclick = function () {
-
+            // redirect to index.html
+            window.location.href = 'index.html';
 
         };
 
