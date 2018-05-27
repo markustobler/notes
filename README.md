@@ -17,5 +17,3 @@ $ npm install
 * Filter finished notes.
 * Weight notes with stars.
 * Change Style with Style Switcher.
-
-

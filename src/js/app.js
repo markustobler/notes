@@ -1,19 +1,3 @@
-
-// UI-Refs
-const newBtn = document.getElementById('new');
-
-newBtn.addEventListener("click", function () {
-
-    location.href = "edit.html";
-
-});
-
-const test = hjvjh;
-
-
-let jwhdgfhu = "fgfg";
-
-
 // Style Switcher
 function addEvent(obj, type, fn) {
     if (obj.attachEvent) {
@@ -40,18 +24,27 @@ function switchStyles() {
         className = selectedOption.value;
 
     document.body.className = className;
-    localStorage.setItem("bodyClassName", className);
+    localStorage.setItem('bodyClassName', className);
 }
 
-var styleSwitcher = document.getElementById("styleSwitcher");
-addEvent(styleSwitcher, "change", switchStyles);
+var styleSwitcher = document.getElementById('styleSwitcher');
 
-var storedClassName = localStorage.getItem("bodyClassName");
-if (storedClassName) {
-    for (var i = 0; i < styleSwitcher.options.length; i++) {
-        if (styleSwitcher.options[i].value === storedClassName) {
-            styleSwitcher.selectedIndex = i;
-            trigger("change", styleSwitcher);
+if(styleSwitcher != null){
+    addEvent(styleSwitcher, 'change', switchStyles);
+
+    var storedClassName = localStorage.getItem('bodyClassName');
+    if (storedClassName) {
+        for (var i = 0; i < styleSwitcher.options.length; i++) {
+            if (styleSwitcher.options[i].value === storedClassName) {
+                styleSwitcher.selectedIndex = i;
+                trigger('change', styleSwitcher);
+            }
         }
     }
+}
+
+// no styleSwitcher on page --> use classname in local storage
+else {
+    var storedClassName = localStorage.getItem('bodyClassName');
+    document.body.className = storedClassName;
 }
