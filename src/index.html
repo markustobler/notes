@@ -21,7 +21,7 @@
     <meta name="msapplication-config" content="favicons/browserconfig.xml">
     <meta name="theme-color" content="#ffffff">
 </head>
-<body class="color-style">
+<body>
 <div class="content">
     <div class="grid-container">
         <header class="header">
@@ -32,8 +32,8 @@
                 <button type="button" id="new" class="btn btn--basic"><i class="fas fa-plus"></i>&nbsp;Create New Note</button>
                 <label class="select">
                 <select id="styleSwitcher">
-                    <option value="gray-style">Gray Style</option>
                     <option value="color-style">Color Style</option>
+                    <option value="gray-style">Gray Style</option>
                 </select>
                 </label>
             </div>
@@ -102,5 +102,6 @@
 <script src="../node_modules/handlebars/dist/handlebars.min.js"></script>
 <script src="js/app.js"></script>
 <script src="js/controllers/index.js"></script>
+<script src="js/controllers/style.js"></script>
 </body>
 </html>
