@@ -34,27 +34,24 @@ body {
 
 .note{
     border-radius: 2px;
-    margin-bottom: 2rem;
+    margin-bottom: 1rem;
     color: var(--color-note-font);
 }
 
-.note .left{
+.note__left{
     background-color: var(--color-note-background);
     border-bottom: 0;
     padding: 1rem;
     box-sizing: border-box;
-    margin-bottom: 0;
     width: 100%;
-    text-align: center;
     box-shadow: 0 1px 2px 0 rgba(0,0,0,.1);
 }
 
-.note .right{
+.note__right{
     background-color: var(--color-note-background);
     border-top: var(--border-note-thickness) dashed #d2d2d2;
     padding: 1rem;
     box-sizing: border-box;
-    margin-bottom: 0;
     width: 100%;
     box-shadow: 0 1px 2px 0 rgba(0,0,0,.1);
 }
@@ -85,6 +82,7 @@ body {
 }
 
 .footer {
+    margin-top: 3rem;
     padding: 1rem;
     flex-shrink: 0;
     background-color: var(--color-footer);
@@ -123,17 +121,15 @@ body {
         width: calc(50% - 2.3rem);
     }
 
-    .note .left {
+    .note__left {
         width: calc(25% - 0.15rem);
-        margin-bottom: 1rem;
         border-radius: 2px;
         text-align: justify;
         border: var(--border-note-thickness) solid #d2d2d2;
     }
 
-    .note .right {
+    .note__right {
         width: calc(75% - 0.15rem);
-        margin-bottom: 1rem;
         border: var(--border-note-thickness) solid #d2d2d2;
     }
 
@@ -180,6 +176,9 @@ header .show-finished {
 }
 .read-more-state:checked ~ .read-more-trigger:before {
     content: 'Show less';
+}
+.read-more-state:checked ~ .read-more-wrap .read-more-teaser{
+    display: none;
 }
 .read-more-trigger {
     cursor: pointer;

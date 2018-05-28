@@ -1,3 +1,5 @@
+'use strict';
+
 // UI-Refs
 const noteTitle = document.getElementById('title');
 const noteDescription = document.getElementById('description');

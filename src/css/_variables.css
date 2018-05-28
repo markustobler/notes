@@ -37,5 +37,5 @@ body.color-style {
     --color-button-active: #55B3C1;
     --color-checkbox-checked: var(--color-secundary);
     --color-staricon-solid: var(--color-tertiary);
-    --border-note-thickness: 0;
+    --border-note-thickness: 1px;
 }

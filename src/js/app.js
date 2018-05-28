@@ -1,3 +1,5 @@
+'use strict';
+
 //classes
 class Note {
     constructor({id, title, description, importance, finishDate, createdDate, archived = false}) {
