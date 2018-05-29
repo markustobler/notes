@@ -1,12 +1,13 @@
 'use strict';
 
 // UI-Refs
-const noteTitle = document.getElementById('title');
-const noteDescription = document.getElementById('description');
-const noteImportance = document.getElementById('importance');
-const noteFinishDate = document.getElementById('finishDate');
-const noteSubmit = document.getElementById('submit');
-const noteCancel = document.getElementById('cancel');
+let noteTitle = {};
+let noteDescription = {};
+let noteImportance = {};
+let noteFinishDate = {};
+let noteSubmit = {};
+let noteCancel = {};
+const main = document.querySelector('main');
 
 
 // create globally-unique identifier
@@ -35,7 +36,7 @@ function checkFormValidity(){
 
 
 // app-state / model
-const noteModel = {
+const editModel = {
 
     importance: function(){
 
@@ -54,7 +55,7 @@ const noteModel = {
             id: uuidv4.id(),
             title: noteTitle.value,
             description: noteDescription.value,
-            importance: noteModel.importance(),
+            importance: editModel.importance(),
             finishDate: noteFinishDate.value,
             createdDate: moment(),
             archived: false
@@ -77,30 +78,49 @@ const noteModel = {
 };
 
 // Controller
-const noteController = {
+const editController = {
     renderUI: function () {
         // render UI
+        let note = noteHelpers.getNote(editController.idFromUrl());
+        let noteTemplate = document.getElementById('note-form').innerHTML;
+        let renderNoteHTML = Handlebars.compile(noteTemplate);
+
+        // set form into html
+        main.innerHTML = renderNoteHTML(note);
+
+        // form ui elements
+        noteTitle = document.getElementById('title');
+        noteDescription = document.getElementById('description');
+        noteImportance = document.getElementById('importance');
+        noteFinishDate = document.getElementById('finishDate');
+        noteSubmit = document.getElementById('submit');
+        noteCancel = document.getElementById('cancel');
+
+        // register all listeners
+        editController.registerListeners();
+
+
     },
     registerListeners: function () {
-        noteSubmit.addEventListener('click', function (e) {
-
+        // add listener submit button
+        noteSubmit.addEventListener('click', function () {
             // save only if all required fields are valid
             if(checkFormValidity() == true){
-                noteModel.saveNote();
+                editModel.saveNote();
             }
-
         });
 
-
+        // add listener cancel button
         noteCancel.onclick = function () {
             // redirect to index.html
             window.location.href = 'index.html';
-
         };
-
+    },
+    idFromUrl: function () {
+        let url = new URLSearchParams(window.location.search);
+        return url.get('id');
     }
 };
-noteController.registerListeners();
 
 // init UI
-noteController.renderUI();
+editController.renderUI();

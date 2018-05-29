@@ -1,6 +1,6 @@
 'use strict';
 
-//classes
+// classes
 class Note {
     constructor({id, title, description, importance, finishDate, createdDate, archived = false}) {
         this.id = id;
@@ -12,3 +12,20 @@ class Note {
         this.archived = archived;
     }
 }
+
+
+
+// helper functions
+const noteHelpers = {
+
+    getNotes: () => {
+        return JSON.parse(localStorage.getItem('notes')) || {};
+    },
+
+    getNote: (id) => {
+        let allNotes = noteHelpers.getNotes();
+        return allNotes[id];
+    },
+
+
+};

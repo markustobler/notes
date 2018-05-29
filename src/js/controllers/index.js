@@ -29,21 +29,38 @@ const initIndexController = function () {
     // UI-Refs
     const newBtn = document.getElementById('new');
     const notesContainer = document.getElementById('notes');
+    let editButtons = [];
+
+
+
 
 
     // Controller
     const countController = {
         renderUI: function () {
-            const notes = JSON.parse(localStorage.getItem("notes")) || {};
+            const notes = noteHelpers.getNotes();
             const noteTemplate = document.getElementById('note-template').innerHTML;
             const renderNoteHtml = Handlebars.compile(noteTemplate);
             notesContainer.innerHTML = renderNoteHtml(notes);
+            editButtons =  document.querySelectorAll('button.edit');
             this.registerListeners();
         },
         registerListeners: function () {
-            newBtn.addEventListener("click", function () {
-                location.href = "edit.html";
+
+            // add listener to new button
+            newBtn.addEventListener('click', function () {
+                location.href = 'edit.html';
             });
+
+            // add listener to all edit buttons
+            editButtons.forEach(function(elem) {
+                elem.addEventListener('click', function (e) {
+                    let id = e.target.closest('.edit').dataset.id;
+                    window.location.href = 'edit.html?id=' + id;
+                });
+            });
+
+
         }
     };
 
