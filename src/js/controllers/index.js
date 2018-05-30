@@ -4,32 +4,11 @@ const initIndexController = function () {
 
     // app-state / model
 
-    // helper for substring
-    Handlebars.registerHelper('trimString', function(passedString) {
-        var theString = passedString.substring(0,50);
-        return new Handlebars.SafeString(theString);
-    });
-
-    // helper to render solid stars
-    Handlebars.registerHelper('solidStar', function(n, block) {
-        var accum = '';
-        for(var i = 0; i < n; ++i)
-            accum += block.fn(i);
-        return accum;
-    });
-
-    // helper to render regular stars
-    Handlebars.registerHelper('regularStar', function(n, block) {
-        var accum = '';
-        for(var i = 0; i < 5-n; ++i)
-            accum += block.fn(i);
-        return accum;
-    });
-
     // UI-Refs
     const newBtn = document.getElementById('new');
     const notesContainer = document.getElementById('notes');
     let editButtons = [];
+    let deleteButtons = [];
 
 
 
@@ -43,6 +22,7 @@ const initIndexController = function () {
             const renderNoteHtml = Handlebars.compile(noteTemplate);
             notesContainer.innerHTML = renderNoteHtml(notes);
             editButtons =  document.querySelectorAll('button.edit');
+            deleteButtons =  document.querySelectorAll('button.delete');
             this.registerListeners();
         },
         registerListeners: function () {
@@ -57,6 +37,15 @@ const initIndexController = function () {
                 elem.addEventListener('click', function (e) {
                     let id = e.target.closest('.edit').dataset.id;
                     window.location.href = 'edit.html?id=' + id;
+                });
+            });
+
+            // add listener to all delete buttons
+            deleteButtons.forEach(function(elem) {
+                elem.addEventListener('click', function (e) {
+                    let id = e.target.closest('.delete').dataset.id;
+                    noteHelpers.deleteNote(id);
+                    countController.renderUI();
                 });
             });
 

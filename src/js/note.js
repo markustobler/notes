@@ -26,6 +26,17 @@ const noteHelpers = {
         let allNotes = noteHelpers.getNotes();
         return allNotes[id];
     },
+    deleteNote: (id) => {
+        // get notes object from local storage
+        let notes = JSON.parse(localStorage.getItem('notes'));
+
+
+        // add note to notes object with note.id as key
+        delete notes[id];
+
+        // parse notes object back to json and store it in local storage
+        localStorage.setItem('notes', JSON.stringify(notes));
+    },
 
 
 };

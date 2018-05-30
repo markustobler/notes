@@ -29,9 +29,7 @@
         <header class="header">
             <h1 class="heading-1">Your new note</h1>
         </header>
-        <main>
-
-        </main>
+        <main></main>
     </div>
 </div>
 <footer class="footer">
@@ -45,21 +43,19 @@
         <label class="form__label" for="title">Title</label>
         <input id="title" class="form__input" id="title" type="text" name="title" required value="{{title}}">
         <label class="form__label" for="description">Description</label>
-        <textarea id="description" class="form__textarea" id="description" name="description"  required>
-            {{description}}
-        </textarea>
+        <textarea id="description" class="form__textarea" id="description" name="description"  required>{{description}}</textarea>
         <label class="form__label">Importance</label>
 
         <div id="importance" class="stars">
-            <input class="star" id="star-5" type="radio" name="star" value="5"/>
+            <input class="star" id="star-5" type="radio" name="star" value="5" {{checked 5 importance}}/>
             <label class="star" for="star-5"></label>
-            <input class="star" id="star-4" type="radio" name="star" value="4"/>
+            <input class="star" id="star-4" type="radio" name="star" value="4" {{checked 4 importance}}/>
             <label class="star" for="star-4"></label>
-            <input class="star" id="star-3" type="radio" name="star" value="3"/>
+            <input class="star" id="star-3" type="radio" name="star" value="3" {{checked 3 importance}}/>
             <label class="star" for="star-3"></label>
-            <input class="star" id="star-2" type="radio" name="star" value="2"/>
+            <input class="star" id="star-2" type="radio" name="star" value="2" {{checked 2 importance}}/>
             <label class="star" for="star-2"></label>
-            <input class="star" id="star-1" type="radio" name="star" value="1"/>
+            <input class="star" id="star-1" type="radio" name="star" value="1" {{checked 1 importance}}/>
             <label class="star" for="star-1"></label>
         </div>
 
@@ -68,13 +64,14 @@
 
         <div class="form__actions">
             <input id="submit" type="submit" class="btn--basic" value="Submit">
-            <button id="cancel" class="btn btn--cancel">Cancel</button>
+            <button id="cancel" type="reset" class="btn btn--cancel">Cancel</button>
         </div>
     </form>
 </script>
 
 <script src="../node_modules/moment/min/moment.min.js"></script>
 <script src="../node_modules/handlebars/dist/handlebars.min.js"></script>
+<script src="js/handlebarsHelpers.js"></script>
 <script src="js/note.js"></script>
 <script src="js/controllers/edit.js"></script>
 <script src="js/controllers/style.js"></script>

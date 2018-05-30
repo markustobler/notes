@@ -6,7 +6,6 @@ let noteDescription = {};
 let noteImportance = {};
 let noteFinishDate = {};
 let noteForm = {};
-let noteCancel = {};
 const main = document.querySelector('main');
 
 
@@ -78,12 +77,7 @@ const editController = {
         noteDescription = document.getElementById('description');
         noteImportance = document.getElementById('importance');
         noteFinishDate = document.getElementById('finishDate');
-        noteSubmit = document.getElementById('submit');
-
         noteForm = document.getElementById('form');
-
-
-        noteCancel = document.getElementById('cancel');
 
         // register all listeners
         editController.registerListeners();
@@ -98,10 +92,10 @@ const editController = {
         });
 
         // add listener cancel button
-        noteCancel.onclick = function () {
-            // redirect to index.html
+        noteForm.addEventListener('reset', (e) => {
+            e.preventDefault();
             window.location.href = 'index.html';
-        };
+        });
     },
     idFromUrl: function () {
         let url = new URLSearchParams(window.location.search);
