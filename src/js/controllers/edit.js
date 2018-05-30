@@ -5,7 +5,7 @@ let noteTitle = {};
 let noteDescription = {};
 let noteImportance = {};
 let noteFinishDate = {};
-let noteSubmit = {};
+let noteForm = {};
 let noteCancel = {};
 const main = document.querySelector('main');
 
@@ -18,21 +18,6 @@ const uuidv4 = {
         );
     }
 };
-
-
-// Form Validation
-function checkFormValidity(){
-    const isValidNoteTitle = noteTitle.checkValidity();
-    const isValidNoteDescription = noteDescription.checkValidity();
-    const isValidFinishDate = noteFinishDate.checkValidity();
-
-    if (isValidNoteTitle == true && isValidNoteDescription == true && isValidFinishDate && true){
-        return true;
-    }
-    else {
-        return false;
-    }
-}
 
 
 // app-state / model
@@ -94,6 +79,10 @@ const editController = {
         noteImportance = document.getElementById('importance');
         noteFinishDate = document.getElementById('finishDate');
         noteSubmit = document.getElementById('submit');
+
+        noteForm = document.getElementById('form');
+
+
         noteCancel = document.getElementById('cancel');
 
         // register all listeners
@@ -103,11 +92,9 @@ const editController = {
     },
     registerListeners: function () {
         // add listener submit button
-        noteSubmit.addEventListener('click', function () {
-            // save only if all required fields are valid
-            if(checkFormValidity() == true){
-                editModel.saveNote();
-            }
+        noteForm.addEventListener('submit', function (e) {
+            e.preventDefault();
+            editModel.saveNote();
         });
 
         // add listener cancel button
