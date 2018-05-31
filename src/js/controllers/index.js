@@ -24,10 +24,9 @@ const initIndexController = function () {
                 location.href = 'edit.html';
             });
 
-            // add EventListener for notes - BubblingEvents
+            // add EventListener for note buttons - BubblingEvents
             notesContainer.addEventListener('click', function (e) {
                 e.stopPropagation();
-
                 if (e.target.parentNode.nodeName == 'BUTTON') {
                     let id = e.target.closest('button').dataset.id;
                     switch (e.target.closest('button').dataset.function) {
@@ -41,6 +40,22 @@ const initIndexController = function () {
                     }
                 }
             });
+
+            // add EventListener for note checkboxes - BubblingEvents
+            notesContainer.addEventListener('change', function (e) {
+                e.stopPropagation();
+
+                if (e.target.parentNode.nodeName == 'LABEL') {
+                    let note = e.target.closest('input').dataset.id;
+                    noteHelpers.toggleArchived(note);
+                }
+
+            });
+
+
+
+
+
         }
     };
 

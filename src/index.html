@@ -68,7 +68,7 @@
         <div class="note__left">
             <p>To be done by <br />{{finishDate}}</p>
             <label class="checkbox-container">
-                <input type="checkbox" name="finished" value="0" />
+                <input type="checkbox" name="finished" value="0" data-id="{{id}}" {{#if archived}}checked{{/if}}/>
                 <span class="checkmark"></span>
                 Finished
             </label>
