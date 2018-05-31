@@ -7,12 +7,6 @@ const initIndexController = function () {
     // UI-Refs
     const newBtn = document.getElementById('new');
     const notesContainer = document.getElementById('notes');
-    let editButtons = [];
-    let deleteButtons = [];
-
-
-
-
 
     // Controller
     const countController = {
@@ -21,8 +15,6 @@ const initIndexController = function () {
             const noteTemplate = document.getElementById('note-template').innerHTML;
             const renderNoteHtml = Handlebars.compile(noteTemplate);
             notesContainer.innerHTML = renderNoteHtml(notes);
-            editButtons =  document.querySelectorAll('button.edit');
-            deleteButtons =  document.querySelectorAll('button.delete');
             this.registerListeners();
         },
         registerListeners: function () {
@@ -32,24 +24,23 @@ const initIndexController = function () {
                 location.href = 'edit.html';
             });
 
-            // add listener to all edit buttons
-            editButtons.forEach(function(elem) {
-                elem.addEventListener('click', function (e) {
-                    let id = e.target.closest('.edit').dataset.id;
-                    window.location.href = 'edit.html?id=' + id;
-                });
+            // add EventListener for notes - BubblingEvents
+            notesContainer.addEventListener('click', function (e) {
+                e.stopPropagation();
+
+                if (e.target.parentNode.nodeName == 'BUTTON') {
+                    let id = e.target.closest('button').dataset.id;
+                    switch (e.target.closest('button').dataset.function) {
+                    case 'edit':
+                        window.location.href = 'edit.html?id=' + id;
+                        break;
+                    case 'delete':
+                        noteHelpers.deleteNote(id);
+                        countController.renderUI();
+                        break;
+                    }
+                }
             });
-
-            // add listener to all delete buttons
-            deleteButtons.forEach(function(elem) {
-                elem.addEventListener('click', function (e) {
-                    let id = e.target.closest('.delete').dataset.id;
-                    noteHelpers.deleteNote(id);
-                    countController.renderUI();
-                });
-            });
-
-
         }
     };
 

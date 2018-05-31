@@ -30,7 +30,6 @@ const noteHelpers = {
         // get notes object from local storage
         let notes = JSON.parse(localStorage.getItem('notes'));
 
-
         // add note to notes object with note.id as key
         delete notes[id];
 
