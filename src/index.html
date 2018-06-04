@@ -41,13 +41,7 @@
                 <button type="button" class="btn btn--basic"><i class="far fa-clock"></i>&nbsp;By finish Date&nbsp;</button>
                 <button type="button" class="btn btn--basic"><i class="far fa-calendar"></i>&nbsp;By created Date</button>
                 <button type="button" class="btn btn--basic"><i class="staricon staricon--solid"></i>&nbsp;By Importance</button>
-                <div class="show-finished">
-                    <label class="checkbox-container">
-                        <input type="checkbox" name="finished" value="0" />
-                        <span class="checkmark"></span>
-                        Show Finished
-                    </label>
-                </div>
+                <div id="filter" class="show-finished"></div>
             </div>
         </header>
 
@@ -62,13 +56,21 @@
     </div>
 </footer>
 
+<script id="filter-template" type="text/x-handlbars-template">
+    <label class="checkbox-container">
+        <input id="finished" type="checkbox" name="finished" value="0" {{#if this}}checked{{/if}}/>
+        <span class="checkmark"></span>
+        Show Finished
+    </label>
+</script>
+
 <script id="note-template" type="text/x-handlbars-template">
     {{#each this}}
     <article class="note flex__grid flex__grid--space-between">
         <div class="note__left">
             <p>To be done by <br />{{finishDate}}</p>
             <label class="checkbox-container">
-                <input type="checkbox" name="finished" value="0" data-id="{{id}}" {{#if archived}}checked{{/if}}/>
+                <input type="checkbox" name="finished" value="0" data-id="{{id}}" {{#if finished}}checked{{/if}}/>
                 <span class="checkmark"></span>
                 Finished
             </label>

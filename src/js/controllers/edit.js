@@ -62,7 +62,7 @@ const editController = {
                 importance: editModel.importance(),
                 finishDate: noteFinishDate.value,
                 createdDate: noteForm.dataset.createdDate,
-                archived: noteForm.dataset.archived
+                finsihed: noteForm.dataset.finished
             });
 
             noteHelpers.saveNote(note);
