@@ -49,7 +49,7 @@ const initIndexController = function () {
                         break;
                     case 'delete':
                         noteHelpers.deleteNote(id);
-                        indexController.renderUI();
+                        indexController.updateUi();
                         break;
                     }
                 }
