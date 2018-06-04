@@ -17,7 +17,10 @@ class Note {
 const noteHelpers = {
     getNotes: () => {
         let notes = noteHelpers.getNotesFromLocalStorage();
-        return noteHelpers.filterFinished(notes);
+        notes = noteHelpers.filterFinished(notes);
+        notes = noteHelpers.sortNotes(notes);
+
+        return notes;
     },
     getNotesFromLocalStorage: function(){
         // get notes object from local storage and parse JSON or set new object
@@ -74,4 +77,26 @@ const noteHelpers = {
     toggleFilter: () => {
         noteHelpers.filterStatus = !noteHelpers.filterStatus;
     },
+    sortStatus: '',
+    setSort: function (sort) {
+        noteHelpers.sortStatus = sort;
+    },
+    sortNotes:function (notes) {
+        let fn = () => {
+        };
+        if (noteHelpers.sortStatus === 'createdDate') {
+            fn = (a, b) => {
+                return moment(a.createdDate).isBefore(moment(b.createdDate));
+            };
+        } else if (noteHelpers.sortStatus === 'finishDate') {
+            fn = (a, b) => {
+                return moment(a.finishDate).isAfter(moment(b.finishDate));
+            };
+        } else if (noteHelpers.sortStatus === 'importance') {
+            fn = (a, b) => {
+                return a.importance < b.importance;
+            };
+        }
+        return notes.sort(fn);
+    }
 };

@@ -6,6 +6,7 @@ const initIndexController = function () {
     const newBtn = document.getElementById('new');
     const notesContainer = document.getElementById('notes');
     const notesFilter = document.getElementById('filter');
+    const sortButtons = document.querySelectorAll('.btn--sort');
 
     // Controller
     const indexController = {
@@ -69,14 +70,31 @@ const initIndexController = function () {
         },
         registerListeners: function () {
             // add EventListener on showFinishedCheckbox
-            notesFilter.addEventListener('click', function (e) {
-
+            notesFilter.addEventListener('change', function (e) {
+                e.stopImmediatePropagation();
                 if (e.target.parentNode.nodeName == 'LABEL') {
                     noteHelpers.toggleFilter();
                     indexController.updateUi();
                 }
             });
-        }
+
+            // add EventListener for sort buttons
+            sortButtons.forEach(function(elem) {
+                elem.addEventListener("click", function(e) {
+                    const sort = e.target.dataset.sort;
+                    noteHelpers.setSort(sort);
+                    indexController.updateUi();
+                });
+            });
+
+
+        },
+
+
+
+
+
+
     };
 
     // init UI
