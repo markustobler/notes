@@ -1,4 +1,4 @@
-'use strict';
+import {default as model} from './../note.js';
 
 // UI-Refs
 let noteTitle = {};
@@ -8,8 +8,8 @@ let noteFinishDate = {};
 let noteForm = {};
 const main = document.querySelector('main');
 
-
-
+// note service
+const noteService = new model.NoteService();
 
 
 // app-state / model
@@ -31,7 +31,7 @@ const editModel = {
 const editController = {
     renderUI: function () {
         // render UI
-        let note = noteHelpers.getNote(editController.idFromUrl());
+        let note = noteService.getNote(editController.idFromUrl());
         let noteTemplate = document.getElementById('note-form').innerHTML;
         let renderNoteHTML = Handlebars.compile(noteTemplate);
 
@@ -55,7 +55,7 @@ const editController = {
         noteForm.addEventListener('submit', function (e) {
             e.preventDefault();
 
-            const note = new Note({
+            const note = new model.Note({
                 id: noteForm.dataset.id,
                 title: noteTitle.value,
                 description: noteDescription.value,
@@ -65,7 +65,7 @@ const editController = {
                 finsihed: noteForm.dataset.finished
             });
 
-            noteHelpers.saveNote(note);
+            noteService.saveNote(note);
             // redirect to index.html
             window.location.href = 'index.html';
         });

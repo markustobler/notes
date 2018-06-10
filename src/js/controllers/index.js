@@ -1,4 +1,4 @@
-'use strict';
+import {default as model} from './../note.js';
 
 const initIndexController = function () {
 
@@ -7,6 +7,9 @@ const initIndexController = function () {
     const notesContainer = document.getElementById('notes');
     const notesFilter = document.getElementById('filter');
     const sortButtons = document.querySelectorAll('.btn--sort');
+
+
+    const noteService = new model.NoteService();
 
     // Controller
     const indexController = {
@@ -20,7 +23,7 @@ const initIndexController = function () {
             // render filter Template
             const filterTemplate = document.getElementById('filter-template').innerHTML;
             const createFilterHTML = Handlebars.compile(filterTemplate);
-            const checked = noteHelpers.filterStatus;
+            const checked = noteService.filterStatus;
             notesFilter.innerHTML = createFilterHTML(checked);
 
             // register EventListeners
@@ -28,7 +31,7 @@ const initIndexController = function () {
         },
 
         updateUi: function () {
-            const notes = noteHelpers.getNotes();
+            const notes = noteService.getNotes();
             indexController.renderUI({notes});
         },
 
@@ -49,7 +52,7 @@ const initIndexController = function () {
                         window.location.href = 'edit.html?id=' + id;
                         break;
                     case 'delete':
-                        noteHelpers.deleteNote(id);
+                        noteService.deleteNote(id);
                         indexController.updateUi();
                         break;
                     }
@@ -62,7 +65,7 @@ const initIndexController = function () {
 
                 if (e.target.parentNode.nodeName == 'LABEL') {
                     let note = e.target.closest('input').dataset.id;
-                    noteHelpers.toggleFinished(note);
+                    noteService.toggleFinished(note);
                     indexController.updateUi();
                 }
 
@@ -73,7 +76,7 @@ const initIndexController = function () {
             notesFilter.addEventListener('change', function (e) {
                 e.stopImmediatePropagation();
                 if (e.target.parentNode.nodeName == 'LABEL') {
-                    noteHelpers.toggleFilter();
+                    noteService.toggleFilter();
                     indexController.updateUi();
                 }
             });
@@ -82,7 +85,7 @@ const initIndexController = function () {
             sortButtons.forEach(function(elem) {
                 elem.addEventListener("click", function(e) {
                     const sort = e.target.dataset.sort;
-                    noteHelpers.setSort(sort);
+                    noteService.setSort(sort);
                     indexController.updateUi();
                 });
             });
