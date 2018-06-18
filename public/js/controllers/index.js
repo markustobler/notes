@@ -30,8 +30,8 @@ const initIndexController = function () {
             indexController.registerTemplateListeners();
         },
 
-        updateUi: function () {
-            const notes = noteService.getNotes();
+         updateUi: async function () {
+            const notes = await noteService.getNotes();
             indexController.renderUI({notes});
         },
 

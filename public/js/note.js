@@ -1,3 +1,5 @@
+import restClient from './services/restClient.js';
+
 // classes
 class Note {
     constructor({id, title, description, importance, finishDate, createdDate, finished = false}) {
@@ -11,7 +13,6 @@ class Note {
     }
 }
 
-
 class NoteService {
 
     constructor() {
@@ -19,26 +20,27 @@ class NoteService {
         this.sortStatus = '';
     }
 
-    getNotes() {
-        let notes = this.getNotesFromLocalStorage();
+    async getNotes() {
+        let notes = await this.getNotesFromStorage();
+
         notes = this.filterFinished(notes);
         notes = this.sortNotes(notes);
         return notes;
     }
 
-    getNotesFromLocalStorage() {
-        // get notes object from local storage and parse JSON or set new object
-        return JSON.parse(localStorage.getItem('notes')) || {};
+    async getNotesFromStorage() {
+        const notes = await restClient.getNotes();
+        return notes;
     }
 
     getNote(id) {
-        const notes = this.getNotesFromLocalStorage();
+        const notes = this.getNotesFromStorage();
         return notes[id];
     }
 
     deleteNote(id) {
         // get notes object from local storage
-        let notes = this.getNotesFromLocalStorage();
+        let notes = this.getNotesFromStorage();
 
         // add note to notes object with note.id as key
         delete notes[id];
@@ -48,14 +50,15 @@ class NoteService {
     }
 
     saveNote(note) {
-        const notes = this.getNotesFromLocalStorage();
+        const notes = this.getNotesFromStorage();
         if (!note.id) {
             note.id = this.generateId();
             note.createdDate = moment();
             note.finished = false;
         }
         notes[note.id] = note;
-        localStorage.setItem('notes', JSON.stringify(notes));
+
+        restClient.createNote(note);
     }
 
     generateId() {
@@ -72,6 +75,7 @@ class NoteService {
     }
 
     filterFinished(notes) {
+
         let notesArray = Object.values(notes);
         notesArray = notesArray.map(note => new Note(note));
 
