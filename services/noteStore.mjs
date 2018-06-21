@@ -19,13 +19,18 @@ export class NoteStore {
         return await this.db.insert(note);
     }
 
-    async delete(id, currentUser) {
-        await this.db.update({_id: id, orderedBy: currentUser}, {$set: {"state": "DELETED"}});
+    async update(id, changes) {
+        await this.db.update({_id: id}, {$set: changes});
         return await this.get(id);
     }
 
-    async get(id, currentUser) {
-        return await this.db.findOne({_id: id, orderedBy : currentUser});
+    async delete(id) {
+        await this.db.remove({_id: id});
+        return true;
+    }
+
+    async get(id) {
+        return await this.db.findOne({_id: id});
     }
 
     async all() {

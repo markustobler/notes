@@ -2,8 +2,8 @@ import restClient from './services/restClient.js';
 
 // classes
 class Note {
-    constructor({id, title, description, importance, finishDate, createdDate, finished = false}) {
-        this.id = id;
+    constructor({title, description, importance, finishDate, createdDate, finished = false}) {
+        //this._id = _id;
         this.title = title;
         this.description = description;
         this.importance = importance;
@@ -22,9 +22,8 @@ class NoteService {
 
     async getNotes() {
         let notes = await this.getNotesFromStorage();
-
-        notes = this.filterFinished(notes);
-        notes = this.sortNotes(notes);
+        //notes = this.filterFinished(notes);
+        //notes = this.sortNotes(notes);
         return notes;
     }
 
@@ -33,45 +32,29 @@ class NoteService {
         return notes;
     }
 
-    getNote(id) {
-        const notes = this.getNotesFromStorage();
-        return notes[id];
+    async getNote(id) {
+        return await restClient.getNote(id);
     }
 
-    deleteNote(id) {
-        // get notes object from local storage
-        let notes = this.getNotesFromStorage();
-
-        // add note to notes object with note.id as key
-        delete notes[id];
-
-        // parse notes object back to json and store it in local storage
-        localStorage.setItem('notes', JSON.stringify(notes));
+    async deleteNote(id) {
+        await restClient.deleteNote(id);
     }
 
-    saveNote(note) {
-        const notes = this.getNotesFromStorage();
-        if (!note.id) {
-            note.id = this.generateId();
-            note.createdDate = moment();
-            note.finished = false;
-        }
-        notes[note.id] = note;
-
-        restClient.createNote(note);
+    async createNote(note) {
+        note.createdDate = moment();
+        note.finished = false;
+        await restClient.createNote(note);
     }
 
-    generateId() {
-        // create globally-unique identifier
-        return ([1e7] + -1e3 + -4e3 + -8e3 + -1e11).replace(/[018]/g, c =>
-            (c ^ crypto.getRandomValues(new Uint8Array(1))[0] & 15 >> c / 4).toString(16)
-        );
+    async updateNote(id, note) {
+        await restClient.updateNote(id, note);
     }
 
-    toggleFinished(noteId) {
-        let note = this.getNote(noteId);
+
+    async toggleFinished(noteId) {
+        let note = await this.getNote(noteId);
         note.finished = !note.finished;
-        this.saveNote(note);
+        await restClient.updateNote(noteId, note);
     }
 
     filterFinished(notes) {

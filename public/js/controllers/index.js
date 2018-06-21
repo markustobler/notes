@@ -15,6 +15,9 @@ const initIndexController = function () {
     const indexController = {
         renderUI: function ({notes}) {
 
+            console.log(notes, 'controller');
+
+
             // render note Template
             const noteTemplate = document.getElementById('note-template').innerHTML;
             const renderNoteHtml = Handlebars.compile(noteTemplate);
@@ -32,6 +35,9 @@ const initIndexController = function () {
 
          updateUi: async function () {
             const notes = await noteService.getNotes();
+
+            console.log(notes, 'updateui')
+
             indexController.renderUI({notes});
         },
 
@@ -65,8 +71,12 @@ const initIndexController = function () {
 
                 if (e.target.parentNode.nodeName == 'LABEL') {
                     let note = e.target.closest('input').dataset.id;
-                    noteService.toggleFinished(note);
-                    indexController.updateUi();
+                     noteService.toggleFinished(note, function () {
+
+                    }).then(function () {
+                         indexController.updateUi();
+                     });
+
                 }
 
             });

@@ -29,9 +29,13 @@ const editModel = {
 
 // Controller
 const editController = {
-    renderUI: function () {
+    renderUI: async function () {
         // render UI
-        let note = noteService.getNote(editController.idFromUrl());
+        let note = await noteService.getNote(editController.idFromUrl());
+
+        console.log(note);
+
+
         let noteTemplate = document.getElementById('note-form').innerHTML;
         let renderNoteHTML = Handlebars.compile(noteTemplate);
 
@@ -56,7 +60,6 @@ const editController = {
             e.preventDefault();
 
             const note = new model.Note({
-                id: noteForm.dataset.id,
                 title: noteTitle.value,
                 description: noteDescription.value,
                 importance: editModel.importance(),
@@ -65,7 +68,14 @@ const editController = {
                 finsihed: noteForm.dataset.finished
             });
 
-            noteService.saveNote(note);
+            if (noteForm.dataset.id) {
+                noteService.updateNote(noteForm.dataset.id, note);
+            }
+            else {
+                noteService.createNote(note);
+            }
+
+
             // redirect to index.html
             window.location.href = 'index.html';
         });

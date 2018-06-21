@@ -1,6 +1,13 @@
-{"id":"8bf6b8ef-c497-4614-85ee-3542d3a9d8c5","title":"Hello","description":"Test","importance":"5","finishDate":"2018-06-07","createdDate":"2018-06-18T20:34:18.109Z","finished":false,"_id":"5kXzAzjgLRbPOVuu"}
-{"id":"52766490-9e87-43dc-9f55-0ed2f0a69a10","title":"Test 33","description":"Hallo","importance":"5","finishDate":"2018-06-09","createdDate":"2018-06-17T21:54:51.587Z","finished":false,"_id":"LHnY2ngV4UBO7vGu"}
-{"id":"6d567d7c-89bd-46ff-9c2a-3d085f333650","title":"test 44","description":"huhu","importance":"5","finishDate":"2018-06-07","createdDate":"2018-06-17T21:55:10.299Z","finished":false,"_id":"gt4Iauc5HkdkKmyM"}
-{"id":"8a51f509-c371-453b-953c-38203bd9718c","title":"Test Note","description":"Eine Beschreibung","importance":"4","finishDate":"2018-06-20","createdDate":"2018-06-17T18:09:52.879Z","finished":false,"_id":"qs4YYNcCdPbRmeue"}
-{"id":"100de527-f00f-49c0-8ceb-55eeddca6da8","title":"Test 110","description":"Hallo","importance":"5","finishDate":"2018-06-07","createdDate":"2018-06-18T22:25:56.129Z","finished":false,"_id":"H6RT3NL9m5bAsvC3"}
-{"id":"a2ebd57b-148f-4b2d-bca5-3eb43c6afbca","title":"guguuuu","description":"Test","importance":"4","finishDate":"2018-06-08","createdDate":"2018-06-18T22:29:15.052Z","finished":false,"_id":"CFzVtXd5Q1BL8zRW"}
+{"title":",n mn mn mn ","description":",m ,","importance":"5","finishDate":"2018-06-02","createdDate":"2018-06-21T21:44:46.425Z","finished":false,"_id":"IBzCjUbJpfV97EFQ"}
+{"title":"scSC","description":"scsc","importance":"5","finishDate":"2018-06-08","createdDate":"2018-06-21T21:29:22.540Z","finished":false,"_id":"PrHPAQqjjCHbYjpn"}
+{"title":"sdgsdgsg","description":"sgsdg","importance":"5","finishDate":"2018-06-08","createdDate":"2018-06-21T21:38:25.371Z","finished":false,"_id":"kqjorLxRyjKtNgYb"}
+{"title":"YYY","description":"YAXA","importance":"5","finishDate":"2018-06-07","createdDate":"2018-06-21T21:29:45.755Z","finished":false,"_id":"plhMvAgnwSJOtfxM"}
+{"title":" x  ","description":" X ","importance":"5","finishDate":"2018-06-07","createdDate":"2018-06-21T21:29:32.992Z","finished":false,"_id":"v3AUbY25SqgdUpse"}
+{"$$deleted":true,"_id":"IBzCjUbJpfV97EFQ"}
+{"$$deleted":true,"_id":"PrHPAQqjjCHbYjpn"}
+{"$$deleted":true,"_id":"kqjorLxRyjKtNgYb"}
+{"$$deleted":true,"_id":"plhMvAgnwSJOtfxM"}
+{"title":"hallo","description":"huhuh","importance":"5","finishDate":"2018-06-07","createdDate":"2018-06-21T21:29:32.992Z","finished":false,"_id":"v3AUbY25SqgdUpse"}
+{"title":"hallo","description":"yes","importance":"5","finishDate":"2018-06-07","createdDate":"2018-06-21T21:29:32.992Z","finished":false,"_id":"v3AUbY25SqgdUpse"}
+{"title":"Hallo","description":"Neu","importance":"5","finishDate":"2018-05-31","createdDate":"2018-06-21T22:01:13.329Z","finished":false,"_id":"LTcN7ikNMsecYErt"}
+{"title":"Hallo","description":"Neu","importance":"1","finishDate":"2018-05-10","createdDate":"2018-06-21T22:01:13.329Z","finished":false,"_id":"LTcN7ikNMsecYErt"}

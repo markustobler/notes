@@ -11,11 +11,17 @@ export class NotesController {
     };
 
     async showNote(req, res) {
-        res.json(await noteStore.get(req.params.id, SecurityUtil.currentUser(req)));
+        res.json(await noteStore.get(req.params.id));
     };
 
+    async updateNote(request, response) {
+        response.json(
+            await noteStore.update(request.params.id, request.body)
+        );
+    }
+
     async deleteNote(req, res) {
-        res.json(await noteStore.delete(req.params.id, SecurityUtil.currentUser(req)));
+        res.json(await noteStore.delete(req.params.id));
     };
 }
 

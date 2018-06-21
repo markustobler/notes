@@ -31,10 +31,10 @@
 
                 <button type="button" id="new" class="btn btn--basic"><i class="fas fa-plus"></i>&nbsp;Create New Note</button>
                 <label class="select">
-                <select id="styleSwitcher">
-                    <option value="color-style">Color Style</option>
-                    <option value="gray-style">Gray Style</option>
-                </select>
+                    <select id="styleSwitcher">
+                        <option value="color-style">Color Style</option>
+                        <option value="gray-style">Gray Style</option>
+                    </select>
                 </label>
             </div>
             <div class="flex__grid flex__grid--space-between filter">
@@ -70,7 +70,7 @@
         <div class="note__left">
             <p>To be done by <br />{{finishDate}}</p>
             <label class="checkbox-container">
-                <input type="checkbox" name="finished" value="0" data-id="{{id}}" {{#if finished}}checked{{/if}}/>
+                <input type="checkbox" name="finished" value="0" data-id="{{_id}}" {{#if finished}}checked{{/if}}/>
                 <span class="checkmark"></span>
                 Finished
             </label>
@@ -78,33 +78,27 @@
         <div class="note__right">
             <div class="note__header">
                 <h3 class="heading-3">{{title}}</h3>
-
                 <div class="header__rating">
                     {{#solidStar importance}}
                     <i class="staricon staricon--solid staricon--color"></i>
                     {{/solidStar}}
-
                     {{#regularStar importance}}
                     <i class="staricon staricon--regular staricon--color"></i>
                     {{/regularStar}}
                 </div>
             </div>
-
             <div class="note__description">
-                <input type="checkbox" class="read-more-state" id="{{id}}" />
+                <input type="checkbox" class="read-more-state" id="{{_id}}" />
                 <p class="read-more-wrap"><span class="read-more-teaser">{{{trimString description}}}...</span><span class="read-more-target">{{description}}</span></p>
-                <label for="{{id}}" class="read-more-trigger"></label>
+                <label for="{{_id}}" class="read-more-trigger"></label>
             </div>
-
             <footer class="note__footer">
-                <button class="edit" type="button" data-id="{{id}}" data-function="edit"><i class="fas fa-pencil-alt"></i></button>
-                <button class="delete" type="button" data-id="{{id}}" data-function="delete"><i class="far fa-trash-alt"></i></button>
+                <button class="edit" type="button" data-id="{{_id}}" data-function="edit"><i class="fas fa-pencil-alt"></i></button>
+                <button class="delete" type="button" data-id="{{_id}}" data-function="delete"><i class="far fa-trash-alt"></i></button>
             </footer>
-
         </div>
     </article>
     {{/each}}
-
 </script>
 
 <script src="../js/libs/moment.min.js"></script>
