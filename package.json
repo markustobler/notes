@@ -3,7 +3,8 @@
   "version": "1.0.0",
   "description": "simple notes app",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node --experimental-modules index.mjs",
+    "debug": "node $NODE_DEBUG_OPTION --experimental-modules index.mjs"
   },
   "repository": {
     "type": "git",
