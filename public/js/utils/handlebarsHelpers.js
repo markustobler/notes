@@ -25,3 +25,9 @@ Handlebars.registerHelper('checked', function(value, test) {
     if (value == undefined) return '';
     return value==test ? 'checked' : '';
 });
+
+// helper to format time
+Handlebars.registerHelper('formatTime', function (date, format) {
+    var mmnt = moment(date);
+    return mmnt.format(format);
+});

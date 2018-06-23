@@ -1,9 +1,9 @@
-import restClient from './services/restClient.js';
+import restClient from '../services/restClient.js';
 
 // classes
-class Note {
-    constructor({title, description, importance, finishDate, createdDate, finished = false}) {
-        //this._id = _id;
+class NoteModel {
+    constructor({_id, title, description, importance, finishDate, createdDate, finished = false}) {
+        this._id = _id;
         this.title = title;
         this.description = description;
         this.importance = importance;
@@ -22,8 +22,8 @@ class NoteService {
 
     async getNotes() {
         let notes = await this.getNotesFromStorage();
-        //notes = this.filterFinished(notes);
-        //notes = this.sortNotes(notes);
+        notes = this.filterFinished(notes);
+        notes = this.sortNotes(notes);
         return notes;
     }
 
@@ -60,7 +60,7 @@ class NoteService {
     filterFinished(notes) {
 
         let notesArray = Object.values(notes);
-        notesArray = notesArray.map(note => new Note(note));
+        notesArray = notesArray.map(note => new NoteModel(note));
 
         if (!this.filterStatus) {
             return notesArray.filter(note => !note.finished);
@@ -97,4 +97,4 @@ class NoteService {
 }
 
 
-export default {NoteService, Note};
+export default {NoteService, Note: NoteModel};

@@ -1,4 +1,4 @@
-import {default as model} from './../note.js';
+import {default as model} from '../model/noteModel.js';
 
 // UI-Refs
 let noteTitle = {};
@@ -10,7 +10,6 @@ const main = document.querySelector('main');
 
 // note service
 const noteService = new model.NoteService();
-
 
 // app-state / model
 const editModel = {
@@ -32,10 +31,6 @@ const editController = {
     renderUI: async function () {
         // render UI
         let note = await noteService.getNote(editController.idFromUrl());
-
-        console.log(note);
-
-
         let noteTemplate = document.getElementById('note-form').innerHTML;
         let renderNoteHTML = Handlebars.compile(noteTemplate);
 
@@ -51,7 +46,6 @@ const editController = {
 
         // register all listeners
         editController.registerListeners();
-
 
     },
     registerListeners: function () {
@@ -75,12 +69,11 @@ const editController = {
                 noteService.createNote(note);
             }
 
-
             // redirect to index.html
             window.location.href = 'index.html';
         });
 
-        // add listener cancel button
+        // add listener on cancel button
         noteForm.addEventListener('reset', (e) => {
             e.preventDefault();
             window.location.href = 'index.html';

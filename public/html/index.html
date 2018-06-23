@@ -29,7 +29,7 @@
             <h1 class="heading-1">Your notes</h1>
             <div class="flex__grid flex__grid--space-between">
 
-                <button type="button" id="new" class="btn btn--basic"><i class="fas fa-plus"></i>&nbsp;Create New Note</button>
+                <button type="button" id="new" class="btn btn--basic"><i class="fas fa-plus"></i>&nbsp;Create New NoteModel</button>
                 <label class="select">
                     <select id="styleSwitcher">
                         <option value="color-style">Color Style</option>
@@ -68,7 +68,7 @@
     {{#each this}}
     <article class="note flex__grid flex__grid--space-between">
         <div class="note__left">
-            <p>To be done by <br />{{finishDate}}</p>
+            <p>To be done by <br />{{formatTime finishDate "MMMM DD, YYYY"}}</p>
             <label class="checkbox-container">
                 <input type="checkbox" name="finished" value="0" data-id="{{_id}}" {{#if finished}}checked{{/if}}/>
                 <span class="checkmark"></span>

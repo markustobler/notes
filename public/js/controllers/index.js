@@ -1,4 +1,4 @@
-import {default as model} from './../note.js';
+import {default as model} from '../model/noteModel.js';
 
 const initIndexController = function () {
 
@@ -7,16 +7,11 @@ const initIndexController = function () {
     const notesContainer = document.getElementById('notes');
     const notesFilter = document.getElementById('filter');
     const sortButtons = document.querySelectorAll('.btn--sort');
-
-
     const noteService = new model.NoteService();
 
     // Controller
     const indexController = {
         renderUI: function ({notes}) {
-
-            console.log(notes, 'controller');
-
 
             // render note Template
             const noteTemplate = document.getElementById('note-template').innerHTML;
@@ -35,9 +30,6 @@ const initIndexController = function () {
 
          updateUi: async function () {
             const notes = await noteService.getNotes();
-
-            console.log(notes, 'updateui')
-
             indexController.renderUI({notes});
         },
 
@@ -76,9 +68,7 @@ const initIndexController = function () {
                     }).then(function () {
                          indexController.updateUi();
                      });
-
                 }
-
             });
         },
         registerListeners: function () {
@@ -99,15 +89,7 @@ const initIndexController = function () {
                     indexController.updateUi();
                 });
             });
-
-
         },
-
-
-
-
-
-
     };
 
     // init UI
