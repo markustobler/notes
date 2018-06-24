@@ -34,7 +34,7 @@ export class NoteStore {
     }
 
     async all() {
-        return await this.db.cfind().sort({ orderDate: -1 }).exec();
+        return await this.db.cfind().sort({createdDate: -1 }).exec();
     }
 }
 

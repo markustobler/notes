@@ -29,7 +29,7 @@
             <h1 class="heading-1">Your notes</h1>
             <div class="flex__grid flex__grid--space-between">
 
-                <button type="button" id="new" class="btn btn--basic"><i class="fas fa-plus"></i>&nbsp;Create New NoteModel</button>
+                <button type="button" id="new" class="btn btn--basic"><i class="fas fa-plus"></i>&nbsp;Create New</button>
                 <label class="select">
                     <select id="styleSwitcher">
                         <option value="color-style">Color Style</option>
@@ -89,8 +89,14 @@
             </div>
             <div class="note__description">
                 <input type="checkbox" class="read-more-state" id="{{_id}}" />
+                {{#checklength description 50}}
                 <p class="read-more-wrap"><span class="read-more-teaser">{{{trimString description}}}...</span><span class="read-more-target">{{description}}</span></p>
                 <label for="{{_id}}" class="read-more-trigger"></label>
+                {{else}}
+                <p class="read-more-wrap"><span>{{description}}</span></p>
+                {{/checklength}}
+
+
             </div>
             <footer class="note__footer">
                 <button class="edit" type="button" data-id="{{_id}}" data-function="edit"><i class="fas fa-pencil-alt"></i></button>

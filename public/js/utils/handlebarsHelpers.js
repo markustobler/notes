@@ -31,3 +31,12 @@ Handlebars.registerHelper('formatTime', function (date, format) {
     var mmnt = moment(date);
     return mmnt.format(format);
 });
+
+// helper to check lenght of string
+Handlebars.registerHelper('checklength', function (v1, v2, options) {
+    'use strict';
+    if (v1.length>v2) {
+        return options.fn(this);
+    }
+    return options.inverse(this);
+});
