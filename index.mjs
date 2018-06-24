@@ -3,14 +3,13 @@ import bodyParser from 'body-parser';
 import path from 'path';
 import {noteRoutes} from './routes/noteRoutes';
 
-//import {indexRoutes} from './routes/indexRoutes';
-
 const app = express();
 
-const router = express.Router();
-
-app.use(express.static(path.resolve('public/html')));
+// serve static
 app.use(express.static(path.resolve('public')));
+app.use(express.static(path.resolve('public/html')));
+app.use('/libraries/moment', express.static('node_modules/moment/min'));
+app.use('/libraries/handlebars', express.static('node_modules/handlebars/dist'));
 
 app.use(bodyParser.json());
 
@@ -18,24 +17,21 @@ app.get("/", function(req, res){
     res.sendFile("/html/index.html",  {root: __dirname + '/public/'});
 });
 
-
-//app.use("/", indexRoutes);
+// routes
 app.use("/notes", noteRoutes);
 
-/*
-app.use(function (err, req, res, next) {
-    if (err.name === 'UnauthorizedError') {
-        res.status(401).send('No token / Invalid token provided');
-    }
-    else
-    {
-        next(err);
-    }
+// error handling
+app.use((req, res, next) => {
+    res.status(404).sendfile('./public/html/error.html');
 });
-*/
+
+app.use((err, req, res, next) => {
+    res.status(500).send('Something broke!')
+});
+
 
 const hostname = '127.0.0.1';
 const port = 3001;
 app.listen(port, hostname, () => {
-    console.log(`Server running at http://${hostname}:${port}/`);
+    console.log(`Note App running at http://${hostname}:${port}/`);
 });
